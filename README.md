@@ -50,7 +50,7 @@ nix profile install .
         note
         notify
         rgpt
-        tl
+        translate
         up
         vocab
     ];
@@ -70,7 +70,7 @@ home.packages = with pkgs; [
     note
     notify
     rgpt
-    tl
+    translate
     up
     vocab
 ];

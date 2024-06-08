@@ -79,7 +79,7 @@
         note = self.packages.${prev.system}.note;
         notify = self.packages.${prev.system}.notify;
         rgpt = self.packages.${prev.system}.rgpt;
-        tl = self.packages.${prev.system}.tl;
+        translate = self.packages.${prev.system}.translate;
         up = self.packages.${prev.system}.up;
         vocab = self.packages.${prev.system}.vocab;
       });
@@ -96,7 +96,7 @@
         rgpt = inputs.rgpt.packages.${system}.default;
         translate = inputs.translate.packages.${system}.default;
         up = inputs.shell-utils.packages.${system}.up;
-        vocab = self.vocab.packages.${system}.default;
+        vocab = inputs.vocab.packages.${system}.default;
       });
     };
 }
