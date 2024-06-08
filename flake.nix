@@ -58,24 +58,45 @@
       url = "github:NewDawn0/homebrew-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vocab = {
+      url = "github:NewDawn0/vocab";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-systems.follows = "nix-systems";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: let
-    eachSystem = nixpkgs.lib.genAttrs (import inputs.nix-systems);
-  in {
-    packages = eachSystem (system: {
-      ansi = inputs.shell-utils.packages.${system}.ansi;
-      dirStack = inputs.dirStack.packages.${system}.default;
-      ex = inputs.shell-utils.packages.${system}.ex;
-      gen = inputs.gen.packages.${system}.default;
-      mac-apps-archive = inputs.mac-apps-archive.packages.${system}.default;
-      nixie-clock = inputs.nixie-clock.packages.${system}.default;
-      note = inputs.note.packages.${system}.default;
-      notify = inputs.notify.packages.${system}.default;
-      rgpt = inputs.rgpt.packages.${system}.default;
-      translate = inputs.translate.packages.${system}.default;
-      up = inputs.shell-utils.packages.${system}.up;
-      homebrew-manager = inputs.homebrew-manager.packages.${system}.default;
-    });
-  };
+  outputs = { self, nixpkgs, ... }@inputs:
+    let eachSystem = nixpkgs.lib.genAttrs (import inputs.nix-systems);
+    in {
+      overlays.default = (final: prev: {
+        ansi = self.packages.${prev.system}.ansi;
+        dirStack = self.packages.${prev.system}.dirStack;
+        ex = self.packages.${prev.system}.ex;
+        gen = self.packages.${prev.system}.gen;
+        homebrew-manager = self.packages.${prev.system}.homebrew-manager;
+        mac-apps-archive = self.packages.${prev.system}.mac-apps-archive;
+        nixie-clock = self.packages.${prev.system}.nixie-clock;
+        note = self.packages.${prev.system}.note;
+        notify = self.packages.${prev.system}.notify;
+        rgpt = self.packages.${prev.system}.rgpt;
+        tl = self.packages.${prev.system}.tl;
+        up = self.packages.${prev.system}.up;
+        vocab = self.packages.${prev.system}.vocab;
+      });
+      packages = eachSystem (system: {
+        ansi = inputs.shell-utils.packages.${system}.ansi;
+        dirStack = inputs.dirStack.packages.${system}.default;
+        ex = inputs.shell-utils.packages.${system}.ex;
+        gen = inputs.gen.packages.${system}.default;
+        homebrew-manager = inputs.homebrew-manager.packages.${system}.default;
+        mac-apps-archive = inputs.mac-apps-archive.packages.${system}.default;
+        nixie-clock = inputs.nixie-clock.packages.${system}.default;
+        note = inputs.note.packages.${system}.default;
+        notify = inputs.notify.packages.${system}.default;
+        rgpt = inputs.rgpt.packages.${system}.default;
+        translate = inputs.translate.packages.${system}.default;
+        up = inputs.shell-utils.packages.${system}.up;
+        vocab = self.vocab.packages.${system}.default;
+      });
+    };
 }
