@@ -54,10 +54,6 @@
       url = "github:NewDawn0/mac-apps-archive";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    homebrew-manager = {
-      url = "github:NewDawn0/homebrew-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     vocab = {
       url = "github:NewDawn0/vocab";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,7 +69,6 @@
         dirStack = self.packages.${prev.system}.dirStack;
         ex = self.packages.${prev.system}.ex;
         gen = self.packages.${prev.system}.gen;
-        homebrew-manager = self.packages.${prev.system}.homebrew-manager;
         mac-apps-archive = self.packages.${prev.system}.mac-apps-archive;
         nixie-clock = self.packages.${prev.system}.nixie-clock;
         note = self.packages.${prev.system}.note;
@@ -88,7 +83,6 @@
         dirStack = inputs.dirStack.packages.${system}.default;
         ex = inputs.shell-utils.packages.${system}.ex;
         gen = inputs.gen.packages.${system}.default;
-        homebrew-manager = inputs.homebrew-manager.packages.${system}.default;
         mac-apps-archive = inputs.mac-apps-archive.packages.${system}.default;
         nixie-clock = inputs.nixie-clock.packages.${system}.default;
         note = inputs.note.packages.${system}.default;

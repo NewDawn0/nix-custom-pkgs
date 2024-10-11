@@ -44,7 +44,6 @@ nix profile install .
         dirStack
         ex
         gen
-        homebrew-manager
         mac-apps-archive
         nixie-clock
         note
@@ -64,7 +63,6 @@ home.packages = with pkgs; [
     dirStack
     ex
     gen
-    homebrew-manager
     mac-apps-archive
     nixie-clock
     note

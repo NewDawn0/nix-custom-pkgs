@@ -88,26 +88,6 @@
         "type": "github"
       }
     },
-    "homebrew-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1717830541,
-        "narHash": "sha256-Gee84IJMoiNv45TfoNRovotZGdr/g4urBA0+XMrn070=",
-        "owner": "NewDawn0",
-        "repo": "homebrew-manager",
-        "rev": "9d0b8237a2a9d4daf27915cfa6526695a10cf37d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NewDawn0",
-        "repo": "homebrew-manager",
-        "type": "github"
-      }
-    },
     "mac-apps-archive": {
       "inputs": {
         "nixpkgs": [
@@ -292,7 +272,6 @@
       "inputs": {
         "dirStack": "dirStack",
         "gen": "gen",
-        "homebrew-manager": "homebrew-manager",
         "mac-apps-archive": "mac-apps-archive",
         "nix-systems": "nix-systems",
         "nixie-clock": "nixie-clock",
